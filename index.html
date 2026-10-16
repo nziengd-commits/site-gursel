@@ -872,49 +872,8 @@
 </footer>
 
 
-<script>
-    // Mise à jour automatique de l'année dans le pied de page.
-    const yearElement = document.getElementById("year");
+<script src="js/site.js"></script>
 
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-
-    // Suppression des paramètres de suivi dans l'adresse.
-    (() => {
-        const url = new URL(window.location.href);
-
-        const trackingParams = [
-            "utm_source",
-            "utm_medium",
-            "utm_campaign",
-            "utm_term",
-            "utm_content",
-            "utm_id",
-            "utm_referrer"
-        ];
-
-        let changed = false;
-
-        for (const param of trackingParams) {
-            if (url.searchParams.has(param)) {
-                url.searchParams.delete(param);
-                changed = true;
-            }
-        }
-
-        if (changed) {
-            const cleanUrl =
-                url.pathname + url.search + url.hash;
-
-            window.history.replaceState(
-                null,
-                document.title,
-                cleanUrl
-            );
-        }
-    })();
-</script>
 
 </body>
 </html>
