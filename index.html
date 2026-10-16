@@ -1,114 +1,884 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Blog personnel consacré aux mathématiques, aux sciences et aux réflexions académiques."
-    >
+    <meta name="author" content="NZIENGUI MATOUMBA Dinge-Gursel">
+    <meta name="description" content="Site personnel de NZIENGUI MATOUMBA Dinge-Gursel : parcours scientifique, mathématiques, informatique, cybersécurité, projets et écriture.">
 
-    <title>Gursel — Carnet scientifique</title>
+    <title>NZIENGUI MATOUMBA Dinge-Gursel | Site personnel</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <style>
+        :root {
+            --primary: #183b56;
+            --secondary: #2563a6;
+            --accent: #e5a93d;
+            --background: #f4f7fb;
+            --surface: #ffffff;
+            --text: #263746;
+            --muted: #64748b;
+            --border: #dce5ee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 14px 0;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #183b56, #2563a6);
+            color: white;
+            padding: 90px 0 80px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            color: #f4cc79;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 5vw, 3.8rem);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            font-size: 1.1rem;
+            color: #e6eef7;
+            margin-bottom: 20px;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            color: white;
+        }
+
+        main {
+            padding: 30px 0 65px;
+        }
+
+        section {
+            margin-top: 55px;
+            scroll-margin-top: 95px;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            color: var(--primary);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 780px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 18px rgba(24, 59, 86, 0.04);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .card p + p {
+            margin-top: 12px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .card li {
+            margin-bottom: 7px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eaf2fa;
+            color: var(--primary);
+            border-radius: 20px;
+            padding: 5px 11px;
+            font-size: 0.85rem;
+        }
+
+        .timeline {
+            border-left: 3px solid var(--secondary);
+            padding-left: 22px;
+            margin-left: 8px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -31px;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--background);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .date {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .highlight {
+            border-left: 5px solid var(--accent);
+        }
+
+        .contact-card {
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .contact-card h2 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: #f4cc79;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            background: #102b40;
+            color: #dce5ee;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        footer p + p {
+            margin-top: 5px;
+        }
+
+        @media (max-width: 720px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <a class="logo" href="index.html">GURSEL<span>.</span></a>
+
+<header>
+    <div class="container navbar">
+        <a class="logo" href="#accueil">GURSEL</a>
 
         <nav aria-label="Navigation principale">
-            <a href="#accueil">Accueil</a>
-            <a href="#articles">Articles</a>
-            <a href="#apropos">À propos</a>
+            <a href="#biographie">Biographie</a>
+            <a href="#formation">Formation</a>
+            <a href="#competences">Compétences</a>
+            <a href="#projets">Projets</a>
+            <a href="#publications">Écriture</a>
+            <a href="#contact">Contact</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main>
-        <section id="accueil" class="hero">
-            <p class="eyebrow">CARNET SCIENTIFIQUE PERSONNEL</p>
+<section class="hero" id="accueil" style="margin-top: 0;">
+    <div class="container hero-content">
+        <p class="eyebrow">Sciences · Informatique · Écriture</p>
 
-            <h1>
-                Penser le monde<br>
-                <span>par les sciences.</span>
-            </h1>
+        <h1>NZIENGUI MATOUMBA Dinge-Gursel</h1>
 
-            <p class="intro">
-                Un espace consacré aux mathématiques, aux sciences,
-                aux idées et à la recherche de compréhension.
+        <p>
+            Un parcours construit autour des mathématiques, de la rigueur
+            scientifique, de l'informatique et de la transmission des
+            connaissances.
+        </p>
+
+        <p>
+            Actuellement en formation en cybersécurité à l'ETNA, je poursuis
+            le développement de mes compétences techniques tout en conservant
+            un intérêt marqué pour les mathématiques, la programmation et
+            l'écriture.
+        </p>
+
+        <div class="hero-links">
+            <a class="btn btn-light" href="#biographie">
+                Découvrir mon parcours
+            </a>
+
+            <a class="btn btn-outline" href="#contact">
+                Me contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+
+    <section id="biographie">
+        <div class="section-heading">
+            <h2>Biographie</h2>
+            <p>Un parcours entre formation scientifique, curiosité intellectuelle et projets personnels.</p>
+        </div>
+
+        <div class="card">
+            <p>
+                Je suis <strong>NZIENGUI MATOUMBA Dinge-Gursel</strong>,
+                de nationalité gabonaise. Mon parcours s'est progressivement
+                construit autour des mathématiques, de la réflexion
+                scientifique et de la volonté de comprendre les mécanismes
+                qui organisent le monde.
             </p>
 
-            <a class="button" href="#articles">Explorer les articles</a>
-        </section>
+            <p>
+                Après mes premières années d'études secondaires, j'ai
+                développé un intérêt particulier pour les mathématiques.
+                Cet intérêt m'a conduit à approfondir mes connaissances,
+                à travailler de manière autonome et à poursuivre une
+                formation en classes préparatoires scientifiques.
+            </p>
 
-        <section id="articles" class="articles-section">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">PUBLICATIONS</p>
-                    <h2>Articles récents</h2>
+            <p>
+                Les classes préparatoires MPSI et MP au Lycée National
+                Léon Mba, au Gabon, ont constitué une étape importante
+                de mon parcours. Elles m'ont permis de renforcer mes
+                méthodes de travail, mon raisonnement mathématique,
+                ma capacité d'analyse et ma persévérance face aux
+                problèmes difficiles.
+            </p>
+
+            <p>
+                Aujourd'hui, je poursuis mon parcours dans le domaine
+                du numérique avec une formation en cybersécurité à l'ETNA.
+                Je m'intéresse également à la programmation, aux systèmes
+                Linux, à la rédaction pédagogique et à la création de
+                projets qui associent réflexion théorique et applications
+                concrètes.
+            </p>
+
+            <p>
+                L'écriture occupe aussi une place importante dans mon
+                cheminement. Elle me permet de conserver une trace de
+                mon histoire, de mettre en forme mes idées et de partager
+                certaines expériences et réflexions.
+            </p>
+        </div>
+    </section>
+
+    <section id="formation">
+        <div class="section-heading">
+            <h2>Formation et parcours académique</h2>
+            <p>Les principales étapes de mon parcours scolaire et supérieur.</p>
+        </div>
+
+        <div class="card">
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span class="date">2026–2029</span>
+                    <h3>Formation en cybersécurité — ETNA</h3>
+                    <p>
+                        <strong>Depuis octobre 2026</strong>, formation
+                        supérieure en cybersécurité à l'ETNA, École des
+                        technologies numériques avancées, en France.
+                    </p>
+                    <p>
+                        Ce cursus de trois ans s'inscrit dans mon projet
+                        de développement de compétences en cybersécurité,
+                        systèmes, réseaux et protection des infrastructures
+                        numériques.
+                    </p>
+                    <p>
+                        <a href="https://etna.io/formation/bachelor-cybersecurite/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Découvrir la formation en cybersécurité à l'ETNA
+                        </a>
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">2025–2026</span>
+                    <h3>Classe préparatoire MP</h3>
+                    <p>
+                        Deuxième année de classes préparatoires scientifiques,
+                        filière MP, au Lycée National Léon Mba, au Gabon.
+                    </p>
+                    <p>
+                        Approfondissement des mathématiques, de la physique
+                        et des méthodes de raisonnement scientifique.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">2024–2025</span>
+                    <h3>Classe préparatoire MPSI</h3>
+                    <p>
+                        Première année de classes préparatoires scientifiques
+                        en mathématiques, physique et sciences de l'ingénieur
+                        au Lycée National Léon Mba, au Gabon.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">2024</span>
+                    <h3>Baccalauréat scientifique</h3>
+                    <p>
+                        Baccalauréat scientifique, spécialité mathématiques.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">2021</span>
+                    <h3>Brevet d'études du premier cycle</h3>
+                    <p>Obtention du BEPC.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">2017</span>
+                    <h3>Certificat d'études primaires</h3>
+                    <p>Obtention du CEP.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card highlight" style="margin-top: 22px;">
+            <h3>Distinction en mathématiques</h3>
+            <p>
+                Lauréat des Olympiades nationales de mathématiques de l'ENS
+                du Gabon.
+            </p>
+            <p>
+                Cette distinction s'inscrit dans mon intérêt pour le
+                raisonnement mathématique, la résolution de problèmes
+                et l'approfondissement des connaissances scientifiques.
+            </p>
+        </div>
+    </section>
+
+    <section id="competences">
+        <div class="section-heading">
+            <h2>Compétences et domaines d'intérêt</h2>
+            <p>Des bases scientifiques que je continue à approfondir avec la pratique et la formation.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Mathématiques</h3>
+                <p>
+                    Formation scientifique acquise en classes préparatoires
+                    et intérêt pour les raisonnements rigoureux.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Analyse</span>
+                    <span class="tag">Algèbre</span>
+                    <span class="tag">Nombres complexes</span>
+                    <span class="tag">Géométrie</span>
+                    <span class="tag">Résolution de problèmes</span>
                 </div>
             </div>
 
-            <label for="search">Rechercher un article</label>
-            <input
-                id="search"
-                type="search"
-                placeholder="Ex. : mathématiques, physique..."
-            >
-
-            <div id="article-list" class="article-list">
-                <article class="article-card">
-                    <p class="category">MATHÉMATIQUES</p>
-                    <h3>Comprendre la convergence des suites</h3>
-                    <p>
-                        Une introduction à la convergence,
-                        à la limite et au raisonnement rigoureux.
-                    </p>
-                    <span class="article-meta">Analyse · Article de présentation</span>
-                </article>
-
-                <article class="article-card">
-                    <p class="category">RÉFLEXION SCIENTIFIQUE</p>
-                    <h3>La démarche scientifique</h3>
-                    <p>
-                        Observer, formuler des hypothèses,
-                        démontrer et confronter les idées aux faits.
-                    </p>
-                    <span class="article-meta">Méthodologie · Article de présentation</span>
-                </article>
-
-                <article class="article-card">
-                    <p class="category">PHYSIQUE</p>
-                    <h3>Modèles et réalité</h3>
-                    <p>
-                        Comment les modèles mathématiques
-                        permettent-ils de représenter le monde physique ?
-                    </p>
-                    <span class="article-meta">Modélisation · Article de présentation</span>
-                </article>
+            <div class="card">
+                <h3>Physique</h3>
+                <p>
+                    Intérêt pour la modélisation, la compréhension des
+                    phénomènes physiques et l'application des méthodes
+                    scientifiques.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Mécanique</span>
+                    <span class="tag">Électricité</span>
+                    <span class="tag">Modélisation</span>
+                </div>
             </div>
 
-            <p id="no-results" hidden>
-                Aucun article ne correspond à cette recherche.
-            </p>
-        </section>
+            <div class="card">
+                <h3>Informatique et outils</h3>
+                <p>
+                    Pratique progressive de la programmation et des outils
+                    informatiques dans le cadre de mes projets et de ma
+                    formation.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Python</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Terminal</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">LaTeX</span>
+                </div>
+            </div>
 
-        <section id="apropos" class="about-section">
-            <p class="eyebrow">À PROPOS</p>
-            <h2>La connaissance comme démarche.</h2>
+            <div class="card">
+                <h3>Cybersécurité</h3>
+                <p>
+                    Domaine de formation et d'approfondissement : systèmes,
+                    réseaux, sécurisation des environnements numériques
+                    et compréhension des risques informatiques.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Systèmes</span>
+                    <span class="tag">Réseaux</span>
+                    <span class="tag">Sécurité informatique</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 22px;">
+            <h3>Méthode de travail</h3>
             <p>
-                Ce blog est un espace personnel pour explorer des idées,
-                partager des explications et approfondir des questions
-                scientifiques avec rigueur.
+                Mon parcours scientifique m'a habitué à travailler avec
+                rigueur, à décomposer les problèmes, à vérifier les
+                raisonnements et à chercher une compréhension approfondie
+                des notions étudiées.
             </p>
-        </section>
-    </main>
+            <p>
+                Je porte également un intérêt particulier à la pédagogie,
+                à l'autonomie et à la transmission des connaissances.
+            </p>
+        </div>
+    </section>
 
-    <footer class="site-footer">
-        <p>Gursel — Carnet scientifique personnel</p>
-        <p>Mathématiques · Sciences · Réflexions</p>
-    </footer>
+    <section id="enseignement">
+        <div class="section-heading">
+            <h2>Transmission et accompagnement scolaire</h2>
+            <p>Mettre les connaissances scientifiques au service de l'apprentissage.</p>
+        </div>
+
+        <div class="card">
+            <h3>Accompagnement en mathématiques et en physique</h3>
+            <p>
+                Je souhaite mettre à profit mon parcours scientifique
+                pour accompagner les élèves du collège et du lycée dans
+                l'apprentissage des mathématiques et de la physique.
+            </p>
+
+            <ul>
+                <li>Revoir les notions essentielles du cours.</li>
+                <li>Expliquer les méthodes de résolution étape par étape.</li>
+                <li>Travailler les exercices et les problèmes.</li>
+                <li>Développer l'autonomie et le raisonnement scientifique.</li>
+                <li>Préparer les évaluations à l'aide d'une méthode structurée.</li>
+            </ul>
+
+            <p style="margin-top: 15px;">
+                Pour toute demande d'accompagnement, tu peux me contacter
+                à l'adresse indiquée dans la section Contact.
+            </p>
+        </div>
+    </section>
+
+    <section id="projets">
+        <div class="section-heading">
+            <h2>Projets personnels et scientifiques</h2>
+            <p>Des projets qui relient mathématiques, programmation, apprentissage et création.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>TIPE — Dynamique des fonctions complexes</h3>
+                <p>
+                    Travail autour de l'itération de fonctions holomorphes
+                    et de la dynamique complexe, dans le prolongement
+                    des thèmes étudiés en classes préparatoires.
+                </p>
+                <p>
+                    Les pistes explorées comprennent les phénomènes de
+                    convergence, les cycles, les ensembles de Julia,
+                    l'ensemble de Mandelbrot et les méthodes de visualisation
+                    numérique.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Mathématiques</span>
+                    <span class="tag">Dynamique complexe</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Projet de livre pédagogique</h3>
+                <p>
+                    <strong>
+                        Analyse réelle pour les prépas MPSI —
+                        Niveau Terminale scientifique, Tome 1
+                    </strong>
+                </p>
+                <p>
+                    Projet de rédaction pédagogique consacré aux
+                    mathématiques, avec l'objectif de faciliter la
+                    compréhension des notions et la transition vers
+                    les exigences des classes préparatoires.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Site personnel</h3>
+                <p>
+                    Création de ce site avec HTML, CSS et JavaScript
+                    afin de présenter mon parcours, mes projets,
+                    mes publications et mes centres d'intérêt.
+                </p>
+                <p>
+                    Ce projet me permet également de progresser dans
+                    la création et l'organisation de contenus web.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Écriture autobiographique</h3>
+                <p>
+                    Un projet d'écriture consacré à mon parcours,
+                    aux personnes qui ont marqué mon histoire et
+                    aux expériences qui ont contribué à ma construction.
+                </p>
+                <p>
+                    Le chapitre « Au Commencement » ouvre ce récit.
+                </p>
+                <p>
+                    <a href="articles/au-commencement.html">
+                        Lire le chapitre « Au Commencement »
+                    </a>
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Programmation et simulations</h3>
+                <p>
+                    Exploration de problèmes mathématiques à l'aide
+                    de programmes et de représentations numériques.
+                    Ces projets visent à relier le raisonnement
+                    théorique à l'observation de résultats concrets.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Apprentissage technique</h3>
+                <p>
+                    Exercices pratiques sous Linux, scripts Bash,
+                    programmation Python et utilisation de Git
+                    dans le cadre de mon apprentissage informatique.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="section-heading">
+            <h2>Écriture et publications</h2>
+            <p>Un espace consacré aux textes, aux idées et au partage de connaissances.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Au Commencement</h3>
+                <p>
+                    Un récit personnel qui revient sur les premières
+                    étapes de mon parcours, mes années d'études,
+                    les difficultés rencontrées et l'évolution
+                    de mon rapport aux mathématiques.
+                </p>
+                <p>
+                    <a href="articles/au-commencement.html">
+                        Lire le chapitre
+                    </a>
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Mathématiques et vulgarisation</h3>
+                <p>
+                    Un espace destiné à accueillir des réflexions,
+                    des explications mathématiques, des notes de travail
+                    et des contenus pédagogiques au fil de leur rédaction.
+                </p>
+                <p>
+                    Les nouveaux textes pourront être ajoutés
+                    progressivement à cette page.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="langues">
+        <div class="section-heading">
+            <h2>Langues</h2>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Français</h3>
+                <p>
+                    Langue de communication et de travail pour mes études,
+                    mes projets scientifiques et mes écrits.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Anglais</h3>
+                <p>
+                    Travail en cours pour renforcer mes capacités de
+                    compréhension, notamment dans la documentation
+                    technique et informatique.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="interets">
+        <div class="section-heading">
+            <h2>Centres d'intérêt</h2>
+        </div>
+
+        <div class="card">
+            <div class="tag-list">
+                <span class="tag">Mathématiques</span>
+                <span class="tag">Sciences</span>
+                <span class="tag">Informatique</span>
+                <span class="tag">Cybersécurité</span>
+                <span class="tag">Programmation</span>
+                <span class="tag">Écriture</span>
+                <span class="tag">Pédagogie</span>
+                <span class="tag">Football</span>
+                <span class="tag">Course à pied</span>
+                <span class="tag">Musique</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="reseaux">
+        <div class="section-heading">
+            <h2>Présence en ligne</h2>
+            <p>Retrouver également mes contenus sur ma chaîne YouTube.</p>
+        </div>
+
+        <div class="card">
+            <h3>Chaîne YouTube</h3>
+            <p>
+                <a href="https://www.youtube.com/channel/UC9QOqg1uTZA12CtqC9w8Ufw"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Accéder à ma chaîne YouTube
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-card">
+            <h2>Contact</h2>
+
+            <p>
+                Pour toute demande concernant mon parcours, mes projets,
+                mes écrits ou un accompagnement scolaire en mathématiques
+                et en physique, tu peux me contacter.
+            </p>
+
+            <p>
+                <strong>Nom :</strong>
+                NZIENGUI MATOUMBA Dinge-Gursel
+            </p>
+
+            <p>
+                <strong>Nationalité :</strong> Gabonaise
+            </p>
+
+            <p>
+                <strong>E-mail :</strong>
+                <a href="mailto:gurseldingematoumba@gmail.com">
+                    gurseldingematoumba@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Téléphone :</strong>
+                <a href="tel:+33759983849">
+                    +33 (0)7 59 98 38 49
+                </a>
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            © <span id="year">2026</span>
+            NZIENGUI MATOUMBA Dinge-Gursel.
+        </p>
+        <p>Site personnel consacré aux sciences, au numérique et à l'écriture.</p>
+    </div>
+</footer>
+
+<script>
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+</script>
+
 </body>
 </html>
+
