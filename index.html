@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Blog personnel consacré aux mathématiques, aux sciences et aux réflexions académiques."
+    >
+
+    <title>Gursel — Carnet scientifique</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">GURSEL<span>.</span></a>
+
+        <nav aria-label="Navigation principale">
+            <a href="#accueil">Accueil</a>
+            <a href="#articles">Articles</a>
+            <a href="#apropos">À propos</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <p class="eyebrow">CARNET SCIENTIFIQUE PERSONNEL</p>
+
+            <h1>
+                Penser le monde<br>
+                <span>par les sciences.</span>
+            </h1>
+
+            <p class="intro">
+                Un espace consacré aux mathématiques, aux sciences,
+                aux idées et à la recherche de compréhension.
+            </p>
+
+            <a class="button" href="#articles">Explorer les articles</a>
+        </section>
+
+        <section id="articles" class="articles-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PUBLICATIONS</p>
+                    <h2>Articles récents</h2>
+                </div>
+            </div>
+
+            <label for="search">Rechercher un article</label>
+            <input
+                id="search"
+                type="search"
+                placeholder="Ex. : mathématiques, physique..."
+            >
+
+            <div id="article-list" class="article-list">
+                <article class="article-card">
+                    <p class="category">MATHÉMATIQUES</p>
+                    <h3>Comprendre la convergence des suites</h3>
+                    <p>
+                        Une introduction à la convergence,
+                        à la limite et au raisonnement rigoureux.
+                    </p>
+                    <span class="article-meta">Analyse · Article de présentation</span>
+                </article>
+
+                <article class="article-card">
+                    <p class="category">RÉFLEXION SCIENTIFIQUE</p>
+                    <h3>La démarche scientifique</h3>
+                    <p>
+                        Observer, formuler des hypothèses,
+                        démontrer et confronter les idées aux faits.
+                    </p>
+                    <span class="article-meta">Méthodologie · Article de présentation</span>
+                </article>
+
+                <article class="article-card">
+                    <p class="category">PHYSIQUE</p>
+                    <h3>Modèles et réalité</h3>
+                    <p>
+                        Comment les modèles mathématiques
+                        permettent-ils de représenter le monde physique ?
+                    </p>
+                    <span class="article-meta">Modélisation · Article de présentation</span>
+                </article>
+            </div>
+
+            <p id="no-results" hidden>
+                Aucun article ne correspond à cette recherche.
+            </p>
+        </section>
+
+        <section id="apropos" class="about-section">
+            <p class="eyebrow">À PROPOS</p>
+            <h2>La connaissance comme démarche.</h2>
+            <p>
+                Ce blog est un espace personnel pour explorer des idées,
+                partager des explications et approfondir des questions
+                scientifiques avec rigueur.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Gursel — Carnet scientifique personnel</p>
+        <p>Mathématiques · Sciences · Réflexions</p>
+    </footer>
+</body>
+</html>
